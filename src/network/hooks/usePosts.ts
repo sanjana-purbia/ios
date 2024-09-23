@@ -21,7 +21,7 @@ export const usePostsQuery = () => {
     queryFn: async () => {
       try {
         const res = await axios.get(ApiConstants.BASE_URL + ApiUrls.getAllPosts, config);
-        const sortedPosts = res.data.slice().sort((a: any, b: any) => {
+        const sortedPosts = res.data?.data?.rows?.slice()?.sort((a: any, b: any) => {
           const dateA = new Date(a.createdAt);
           const dateB = new Date(b.createdAt);
           return dateB.getTime() - dateA.getTime();

@@ -8,8 +8,8 @@ interface PostProps {
     _id: string;
     image: string;
     title: string;
-    desc: string;
-    complete: boolean;
+    content: string;
+    isComplete: boolean;
   };
   onEdit: (post: any) => void
 }
@@ -34,7 +34,7 @@ const Post: React.FC<PostProps> = ({ post, onEdit }) => {
             <Text style={styles.header}>{post.title}</Text>
           </TouchableOpacity>
           <Text style={styles.category}>
-            {post.complete ? 'Published' : 'Draft'}
+            {post.isComplete ? 'Published' : 'Draft'}
           </Text>
           <TouchableOpacity onPress={handleEdit}>
             <Text>Edit</Text>

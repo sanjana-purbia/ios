@@ -16,13 +16,27 @@ const loginUser = async (userDetails: any) => {
   try {
     const {email, password} = userDetails;
     const response = await axios.post(
-        ApiConstants.BASE_URL + ApiUrls.login,
+      ApiConstants.BASE_URL + ApiUrls.login,
       {email, password},
       config,
     );
-    console.log('response', response)
-    const {token} = response.data.data;
-    return {data: response.data.data, token: token};
+    console.log('response', response);
+    return {data: response.data};
+  } catch (error) {
+    console.error('Error calling login API:', error);
+    return error;
+  }
+};
+
+const signUpUser = async (userDetails: any) => {
+  try {
+    const {email, password, name} = userDetails;
+    const response = await axios.post(
+      ApiConstants.BASE_URL + ApiUrls.register,
+      {email, password, name},
+      config,
+    );
+    return {data: response.data};
   } catch (error) {
     console.error('Error calling login API:', error);
     return error;
@@ -45,4 +59,4 @@ const loginUser = async (userDetails: any) => {
 //   }
 // };
 
-export {loginUser};
+export {loginUser, signUpUser};

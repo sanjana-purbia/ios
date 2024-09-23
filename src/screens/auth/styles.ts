@@ -7,11 +7,9 @@ export default StyleSheet.create({
     height: AppConstants.SCREEN_HEIGHT / 2.5,
   },
   heading: {
-    // ...viewStyles.center,
-    marginBottom: 40,
+    marginBottom: AppConstants.MARGIN.MD_MARGIN,
   },
   loginButton: {
-    // backgroundColor: PRIMARY_COLOR,
     borderRadius: AppConstants.MARGIN.LG_MARGIN,
     padding: AppConstants.SPACING.MD_SPACING,
     marginTop: 10,
@@ -24,5 +22,20 @@ export default StyleSheet.create({
     marginTop: 10,
     alignItems: 'center',
     margin: AppConstants.MARGIN.LG_MARGIN,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 20,
+  },
+  footerText: {
+    color: '#333',
+    fontSize: 14,
+  },
+  footerLink: {
+    color: '#007AFF',
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginLeft: 5,
   },
 });

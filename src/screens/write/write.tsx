@@ -28,10 +28,10 @@ type Post = {
   id?: string;
   image: string;
   title: string;
-  desc: string;
+  content: string;
   date: string;
-  cat: string;
-  complete: boolean;
+  category: string;
+  isComplete: boolean;
 };
 
 type RootStackParamList = {
@@ -102,10 +102,10 @@ export default function Write({navigation, route}: WriteProps) {
     const newPost: Post = {
       image: richImg || 'https://www.w3schools.com/css/img_5terre.jpg',
       title: richTitle || 'Untitled',
-      desc: descHTML || 'No content',
+      content: descHTML || 'No content',
       date: new Date().toISOString().split('T')[0],
-      cat: richCategory || 'News',
-      complete,
+      category: richCategory || 'News',
+      isComplete: complete,
     };
 
     if (isEditing) {

@@ -26,6 +26,7 @@ import {
 import {Post} from '@src/components/post';
 import {ROUTES_CONSTANTS} from '@src/config/RoutesConstants';
 import {StackNavigationProp} from '@react-navigation/stack';
+import { viewStyles } from '@src/utility/ViewStyles';
 
 type NavigationProp = StackNavigationProp<RootStackParamList, 'EDIT'>;
 
@@ -35,7 +36,6 @@ export default function HomeScreen({navigation}: {navigation: NavigationProp}) {
   const createPostMutation = useCreatePostMutation();
   const editPostMutation = useEditPostMutation();
   const deletePostMutation = useDeletePostMutation();
-  console.log('isError', isError);
   const updatePosts = async () => {
     const newPosts = getNewPostsFromStorage();
     const editPosts = getEditPostsFromStorage();
@@ -97,6 +97,7 @@ export default function HomeScreen({navigation}: {navigation: NavigationProp}) {
   if (isError) return <Text>Error fetching posts</Text>;
 
   return (
+    <View style={viewStyles.containerWithBg}>
     <ScrollView keyboardShouldPersistTaps="handled">
       <View style={{flex: 1, margin: 20, justifyContent: 'center'}}>
         <Text>All Posts</Text>
@@ -115,5 +116,6 @@ export default function HomeScreen({navigation}: {navigation: NavigationProp}) {
         </TouchableOpacity>
       </View>
     </ScrollView>
+    </View>
   );
 }

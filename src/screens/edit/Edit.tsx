@@ -30,11 +30,11 @@ const Edit: React.FC<EditScreenProps> = () => {
   const navigation = useNavigation();
   const route: any = useRoute();
   const richText = useRef<RichEditor>(null);
-  const {image, title, cat, desc, _id} = route?.params?.post || {};
+  const {image, title, category, content, _id} = route?.params?.post || {};
   const [richImg, setRichImg] = useState(image);
   const [richTitle, setRichTitle] = useState(title);
-  const [richCategory, setRichCategory] = useState(cat);
-  const [descHTML, setDescHTML] = useState(desc);
+  const [richCategory, setRichCategory] = useState(category);
+  const [descHTML, setDescHTML] = useState(content);
   const [showDescError, setShowDescError] = useState(false);
 
   // Use the provided hooks
@@ -46,8 +46,8 @@ const Edit: React.FC<EditScreenProps> = () => {
     if (post) {
       setRichImg(post.image);
       setRichTitle(post.title);
-      setRichCategory(post.cat);
-      setDescHTML(post.desc);
+      setRichCategory(post.category);
+      setDescHTML(post.content);
     }
   }, [post]);
 
@@ -72,10 +72,10 @@ const Edit: React.FC<EditScreenProps> = () => {
         postid: _id,
         image: richImg || 'https://www.w3schools.com/css/img_5terre.jpg',
         title: richTitle || 'Untitled',
-        desc: descHTML || 'No content',
+        content: descHTML || 'No content',
         date: new Date().toISOString(),
-        cat: richCategory || 'News',
-        complete,
+        category: richCategory || 'News',
+        isComplete,
       };
       editPostMutation.mutate(updatedPost, {
         onSuccess: () => {

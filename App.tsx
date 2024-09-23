@@ -11,6 +11,7 @@ import Routes from '@config/Routes';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {Platform, SafeAreaView, StatusBar} from 'react-native';
 import {viewStyles} from '@src/utility/ViewStyles';
+import {UserProvider} from '@src/config/userContext';
 
 function App(): React.JSX.Element {
   const queryClient = new QueryClient();
@@ -19,10 +20,12 @@ function App(): React.JSX.Element {
   return (
     <QueryClientProvider client={queryClient}>
       <SafeAreaView style={viewStyles.container}>
-        <StatusBar barStyle={barColor}/>
-        <NavigationContainer>
-          <Routes />
-        </NavigationContainer>
+        <StatusBar barStyle={barColor} />
+        <UserProvider>
+          <NavigationContainer>
+            <Routes />
+          </NavigationContainer>
+        </UserProvider>
       </SafeAreaView>
     </QueryClientProvider>
   );
