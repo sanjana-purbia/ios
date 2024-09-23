@@ -26,9 +26,8 @@ const AuthScreen = () => {
       setUser({ id, email, accessToken, refreshToken });
       navigation.navigate(ROUTES_CONSTANTS.HOME_SCREEN);
     },
-    onError: (error) => {
+    onError: (error: any) => {
       console.log('Login error:', error);
-      // Handle login error (show error message)
     },
   });
 
@@ -41,7 +40,6 @@ const AuthScreen = () => {
     },
     onError: (error) => {
       console.log('Signup error:', error);
-      // Handle signup error (show error message)
     },
   });
 

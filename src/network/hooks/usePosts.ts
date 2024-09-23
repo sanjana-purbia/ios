@@ -1,8 +1,8 @@
-import axios from 'axios';
 import { MMKV } from 'react-native-mmkv';
 import ApiConstants from '../ApiConstants';
 import ApiUrls from '../ApiUrls';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import api from '../axiosInstane';
 
 const mmkv = new MMKV();
 
@@ -20,7 +20,7 @@ export const usePostsQuery = () => {
     queryKey: POSTS_CACHE_KEY,
     queryFn: async () => {
       try {
-        const res = await axios.get(ApiConstants.BASE_URL + ApiUrls.getAllPosts, config);
+        const res = await api.get(ApiConstants.BASE_URL + ApiUrls.getAllPosts, config);
         const sortedPosts = res.data?.data?.rows?.slice()?.sort((a: any, b: any) => {
           const dateA = new Date(a.createdAt);
           const dateB = new Date(b.createdAt);
@@ -47,7 +47,7 @@ export const useCreatePostMutation = () => {
   return useMutation({
     mutationFn: async (post: any) => {
       try {
-        const result = await axios.post(ApiConstants.BASE_URL + ApiUrls.createPost, post, config);
+        const result = await api.post(ApiConstants.BASE_URL + ApiUrls.createPost, post, config);
         return result.data;
       } catch (error) {
         console.error('Error creating post:', error);
@@ -65,7 +65,7 @@ export const useEditPostMutation = () => {
   return useMutation({
     mutationFn: async (post: any) => {
       try {
-        const result = await axios.post(ApiConstants.BASE_URL + ApiUrls.updatePost(post.postid), post, config);
+        const result = await api.post(ApiConstants.BASE_URL + ApiUrls.updatePost(post.postid), post, config);
         return result.data;
       } catch (error) {
         console.error('Error editing post:', error);
@@ -83,7 +83,7 @@ export const useDeletePostMutation = () => {
   return useMutation({
     mutationFn: async (postId: string) => {
       try {
-        const result = await axios.post(ApiConstants.BASE_URL + ApiUrls.deletePost(postId), {}, config);
+        const result = await api.post(ApiConstants.BASE_URL + ApiUrls.deletePost(postId), {}, config);
         return result.data;
       } catch (error) {
         console.error('Error deleting post:', error);
@@ -102,7 +102,7 @@ export const usePostQuery = (postId: string) => {
     queryKey: ['post', postId],
     queryFn: async () => {
       try {
-        const res = await axios.get(ApiConstants.BASE_URL + ApiUrls.getPostById(postId), config);
+        const res = await api.get(ApiConstants.BASE_URL + ApiUrls.getPostById(postId), config);
         return res.data;
       } catch (error) {
         console.error('Error fetching post:', error);

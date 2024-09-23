@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { MMKV } from 'react-native-mmkv';
-import ApiConstants from '../ApiConstants';
-import ApiUrls from '../ApiUrls';
+import ApiConstants from './ApiConstants';
+import ApiUrls from './ApiUrls';
 
 const mmkv = new MMKV();
 

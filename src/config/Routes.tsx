@@ -25,7 +25,7 @@ const Routes = () => {
               headerShown: true,
               headerRight: () => {
                 return (
-                  <TouchableOpacity onPress={logout}>
+                  <TouchableOpacity onPress={logout} style={{marginRight: 10}}>
                     <MaterialIcons name="logout" size={28} />
                   </TouchableOpacity>
                 );

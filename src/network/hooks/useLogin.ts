@@ -2,6 +2,7 @@ import axios from 'axios';
 import {MMKV} from 'react-native-mmkv';
 import ApiConstants from '../ApiConstants';
 import ApiUrls from '../ApiUrls';
+import { showErrorToast } from '@src/utility/toast';
 
 const mmkv = new MMKV();
 
@@ -20,9 +21,9 @@ const loginUser = async (userDetails: any) => {
       {email, password},
       config,
     );
-    console.log('response', response);
     return {data: response.data};
-  } catch (error) {
+  } catch (error: any) {
+    showErrorToast(error?.response?.data?.message)
     console.error('Error calling login API:', error);
     return error;
   }
@@ -37,7 +38,8 @@ const signUpUser = async (userDetails: any) => {
       config,
     );
     return {data: response.data};
-  } catch (error) {
+  } catch (error: any) {
+    showErrorToast(error?.response?.data?.message)
     console.error('Error calling login API:', error);
     return error;
   }
