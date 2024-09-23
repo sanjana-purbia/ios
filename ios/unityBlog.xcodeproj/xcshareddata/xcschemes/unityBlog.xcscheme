@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "richEditor.app"
-               BlueprintName = "richEditor"
-               ReferencedContainer = "container:richEditor.xcodeproj">
+               BuildableName = "unityBlog.app"
+               BlueprintName = "unityBlog"
+               ReferencedContainer = "container:unityBlog.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "richEditorTests.xctest"
-               BlueprintName = "richEditorTests"
-               ReferencedContainer = "container:richEditor.xcodeproj">
+               BuildableName = "unityBlogTests.xctest"
+               BlueprintName = "unityBlogTests"
+               ReferencedContainer = "container:unityBlog.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "richEditor.app"
-            BlueprintName = "richEditor"
-            ReferencedContainer = "container:richEditor.xcodeproj">
+            BuildableName = "unityBlog.app"
+            BlueprintName = "unityBlog"
+            ReferencedContainer = "container:unityBlog.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "richEditor.app"
-            BlueprintName = "richEditor"
-            ReferencedContainer = "container:richEditor.xcodeproj">
+            BuildableName = "unityBlog.app"
+            BlueprintName = "unityBlog"
+            ReferencedContainer = "container:unityBlog.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

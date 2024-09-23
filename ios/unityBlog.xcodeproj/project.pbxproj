@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* richEditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* richEditorTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-richEditor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-richEditor.a */; };
+		00E356F31AD99517003FC87E /* unityBlogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* unityBlogTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -18,9 +17,10 @@
 		424D0B402C92E9BD00C8400E /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 424D0B3C2C92CEC300C8400E /* FontAwesome.ttf */; };
 		424D0B412C92E9C100C8400E /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 424D0B3D2C92CED300C8400E /* MaterialCommunityIcons.ttf */; };
 		424D0B422C92E9C700C8400E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 424D0B3E2C92CEE300C8400E /* MaterialIcons.ttf */; };
+		57FB9CF37C94C4731105E15D /* libPods-unityBlog-unityBlogTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DD9DA65FFBEC7CF32FB0C2 /* libPods-unityBlog-unityBlogTests.a */; };
 		645481EC2630B2A915C4DCF8 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B5701CF4640D2E7CC92DD9 /* PrivacyInfo.xcprivacy */; };
-		7699B88040F8A987B510C191 /* libPods-richEditor-richEditorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-richEditor-richEditorTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		FF8E4452E359CE5377465D1B /* libPods-unityBlog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A42C19F00928B11B7DF042AC /* libPods-unityBlog.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,35 +29,39 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = richEditor;
+			remoteInfo = unityBlog;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* richEditorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = richEditorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* unityBlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unityBlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* richEditorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = richEditorTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* richEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = richEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = richEditor/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = richEditor/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = richEditor/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = richEditor/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = richEditor/main.m; sourceTree = "<group>"; };
-		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = richEditor/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		13B5701CF4640D2E7CC92DD9 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = richEditor/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-richEditor-richEditorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-richEditor-richEditorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4392A12AC88292D35C810B /* Pods-richEditor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-richEditor.debug.xcconfig"; path = "Target Support Files/Pods-richEditor/Pods-richEditor.debug.xcconfig"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* unityBlogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = unityBlogTests.m; sourceTree = "<group>"; };
+		02DA2C287BD583A6FCF40579 /* Pods-unityBlog-unityBlogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unityBlog-unityBlogTests.debug.xcconfig"; path = "Target Support Files/Pods-unityBlog-unityBlogTests/Pods-unityBlog-unityBlogTests.debug.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* unityBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = unityBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = unityBlog/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = unityBlog/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = unityBlog/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = unityBlog/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = unityBlog/main.m; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = unityBlog/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		13B5701CF4640D2E7CC92DD9 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = unityBlog/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		168FDCC49025277387115AB3 /* Pods-unityBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unityBlog.release.xcconfig"; path = "Target Support Files/Pods-unityBlog/Pods-unityBlog.release.xcconfig"; sourceTree = "<group>"; };
+		20CF2C8B5DB06729C3E96293 /* Pods-unityBlog-unityBlogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unityBlog-unityBlogTests.release.xcconfig"; path = "Target Support Files/Pods-unityBlog-unityBlogTests/Pods-unityBlog-unityBlogTests.release.xcconfig"; sourceTree = "<group>"; };
+		3B4392A12AC88292D35C810B /* Pods-unityBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unityBlog.debug.xcconfig"; path = "Target Support Files/Pods-unityBlog/Pods-unityBlog.debug.xcconfig"; sourceTree = "<group>"; };
 		424D0B372C92CE8F00C8400E /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		424D0B392C92CEA700C8400E /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		424D0B3B2C92CEB800C8400E /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		424D0B3C2C92CEC300C8400E /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		424D0B3D2C92CED300C8400E /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		424D0B3E2C92CEE300C8400E /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-richEditor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-richEditor.release.xcconfig"; path = "Target Support Files/Pods-richEditor/Pods-richEditor.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-richEditor-richEditorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-richEditor-richEditorTests.debug.xcconfig"; path = "Target Support Files/Pods-richEditor-richEditorTests/Pods-richEditor-richEditorTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-richEditor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-richEditor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = richEditor/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-richEditor-richEditorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-richEditor-richEditorTests.release.xcconfig"; path = "Target Support Files/Pods-richEditor-richEditorTests/Pods-richEditor-richEditorTests.release.xcconfig"; sourceTree = "<group>"; };
+		46724507492F5CFC7E59F9C6 /* Pods-unityBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unityBlog.debug.xcconfig"; path = "Target Support Files/Pods-unityBlog/Pods-unityBlog.debug.xcconfig"; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-unityBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unityBlog.release.xcconfig"; path = "Target Support Files/Pods-unityBlog/Pods-unityBlog.release.xcconfig"; sourceTree = "<group>"; };
+		5B7EB9410499542E8C5724F5 /* Pods-unityBlog-unityBlogTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unityBlog-unityBlogTests.debug.xcconfig"; path = "Target Support Files/Pods-unityBlog-unityBlogTests/Pods-unityBlog-unityBlogTests.debug.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = unityBlog/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89C6BE57DB24E9ADA2F236DE /* Pods-unityBlog-unityBlogTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-unityBlog-unityBlogTests.release.xcconfig"; path = "Target Support Files/Pods-unityBlog-unityBlogTests/Pods-unityBlog-unityBlogTests.release.xcconfig"; sourceTree = "<group>"; };
+		A42C19F00928B11B7DF042AC /* libPods-unityBlog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-unityBlog.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5DD9DA65FFBEC7CF32FB0C2 /* libPods-unityBlog-unityBlogTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-unityBlog-unityBlogTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -66,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-richEditor-richEditorTests.a in Frameworks */,
+				57FB9CF37C94C4731105E15D /* libPods-unityBlog-unityBlogTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,20 +78,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-richEditor.a in Frameworks */,
+				FF8E4452E359CE5377465D1B /* libPods-unityBlog.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* richEditorTests */ = {
+		00E356EF1AD99517003FC87E /* unityBlogTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* richEditorTests.m */,
+				00E356F21AD99517003FC87E /* unityBlogTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = richEditorTests;
+			path = unityBlogTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -98,7 +102,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* richEditor */ = {
+		13B07FAE1A68108700A75B9A /* unityBlog */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -110,15 +114,15 @@
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				13B5701CF4640D2E7CC92DD9 /* PrivacyInfo.xcprivacy */,
 			);
-			name = richEditor;
+			name = unityBlog;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-richEditor.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-richEditor-richEditorTests.a */,
+				A42C19F00928B11B7DF042AC /* libPods-unityBlog.a */,
+				B5DD9DA65FFBEC7CF32FB0C2 /* libPods-unityBlog-unityBlogTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -147,9 +151,9 @@
 			isa = PBXGroup;
 			children = (
 				424D0B362C92CE2A00C8400E /* Fonts */,
-				13B07FAE1A68108700A75B9A /* richEditor */,
+				13B07FAE1A68108700A75B9A /* unityBlog */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* richEditorTests */,
+				00E356EF1AD99517003FC87E /* unityBlogTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -162,8 +166,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* richEditor.app */,
-				00E356EE1AD99517003FC87E /* richEditorTests.xctest */,
+				13B07F961A680F5B00A75B9A /* unityBlog.app */,
+				00E356EE1AD99517003FC87E /* unityBlogTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,10 +175,14 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-richEditor.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-richEditor.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-richEditor-richEditorTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-richEditor-richEditorTests.release.xcconfig */,
+				3B4392A12AC88292D35C810B /* Pods-unityBlog.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-unityBlog.release.xcconfig */,
+				5B7EB9410499542E8C5724F5 /* Pods-unityBlog-unityBlogTests.debug.xcconfig */,
+				89C6BE57DB24E9ADA2F236DE /* Pods-unityBlog-unityBlogTests.release.xcconfig */,
+				46724507492F5CFC7E59F9C6 /* Pods-unityBlog.debug.xcconfig */,
+				168FDCC49025277387115AB3 /* Pods-unityBlog.release.xcconfig */,
+				02DA2C287BD583A6FCF40579 /* Pods-unityBlog-unityBlogTests.debug.xcconfig */,
+				20CF2C8B5DB06729C3E96293 /* Pods-unityBlog-unityBlogTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -182,9 +190,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* richEditorTests */ = {
+		00E356ED1AD99517003FC87E /* unityBlogTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "richEditorTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "unityBlogTests" */;
 			buildPhases = (
 				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -198,14 +206,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = richEditorTests;
-			productName = richEditorTests;
-			productReference = 00E356EE1AD99517003FC87E /* richEditorTests.xctest */;
+			name = unityBlogTests;
+			productName = unityBlogTests;
+			productReference = 00E356EE1AD99517003FC87E /* unityBlogTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* richEditor */ = {
+		13B07F861A680F5B00A75B9A /* unityBlog */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "richEditor" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "unityBlog" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -219,9 +227,9 @@
 			);
 			dependencies = (
 			);
-			name = richEditor;
-			productName = richEditor;
-			productReference = 13B07F961A680F5B00A75B9A /* richEditor.app */;
+			name = unityBlog;
+			productName = unityBlog;
+			productReference = 13B07F961A680F5B00A75B9A /* unityBlog.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -241,7 +249,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "richEditor" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "unityBlog" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -254,8 +262,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* richEditor */,
-				00E356ED1AD99517003FC87E /* richEditorTests */,
+				13B07F861A680F5B00A75B9A /* unityBlog */,
+				00E356ED1AD99517003FC87E /* unityBlogTests */,
 			);
 		};
 /* End PBXProject section */
@@ -309,15 +317,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-richEditor/Pods-richEditor-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-unityBlog/Pods-unityBlog-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-richEditor/Pods-richEditor-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-unityBlog/Pods-unityBlog-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-richEditor/Pods-richEditor-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-unityBlog/Pods-unityBlog-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -335,7 +343,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-richEditor-richEditorTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-unityBlog-unityBlogTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -357,7 +365,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-richEditor-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-unityBlog-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -370,15 +378,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-richEditor-richEditorTests/Pods-richEditor-richEditorTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-unityBlog-unityBlogTests/Pods-unityBlog-unityBlogTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-richEditor-richEditorTests/Pods-richEditor-richEditorTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-unityBlog-unityBlogTests/Pods-unityBlog-unityBlogTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-richEditor-richEditorTests/Pods-richEditor-richEditorTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-unityBlog-unityBlogTests/Pods-unityBlog-unityBlogTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
@@ -387,15 +395,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-richEditor/Pods-richEditor-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-unityBlog/Pods-unityBlog-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-richEditor/Pods-richEditor-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-unityBlog/Pods-unityBlog-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-richEditor/Pods-richEditor-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-unityBlog/Pods-unityBlog-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
@@ -404,15 +412,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-richEditor-richEditorTests/Pods-richEditor-richEditorTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-unityBlog-unityBlogTests/Pods-unityBlog-unityBlogTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-richEditor-richEditorTests/Pods-richEditor-richEditorTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-unityBlog-unityBlogTests/Pods-unityBlog-unityBlogTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-richEditor-richEditorTests/Pods-richEditor-richEditorTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-unityBlog-unityBlogTests/Pods-unityBlog-unityBlogTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -422,7 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* richEditorTests.m in Sources */,
+				00E356F31AD99517003FC87E /* unityBlogTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +448,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* richEditor */;
+			target = 13B07F861A680F5B00A75B9A /* unityBlog */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -448,14 +456,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-richEditor-richEditorTests.debug.xcconfig */;
+			baseConfigurationReference = 02DA2C287BD583A6FCF40579 /* Pods-unityBlog-unityBlogTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = richEditorTests/Info.plist;
+				INFOPLIST_FILE = unityBlogTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -467,19 +475,19 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nnn.unity.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/richEditor.app/richEditor";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/unityBlog.app/unityBlog";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-richEditor-richEditorTests.release.xcconfig */;
+			baseConfigurationReference = 20CF2C8B5DB06729C3E96293 /* Pods-unityBlog-unityBlogTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = richEditorTests/Info.plist;
+				INFOPLIST_FILE = unityBlogTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -491,21 +499,23 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nnn.unity.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/richEditor.app/richEditor";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/unityBlog.app/unityBlog";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-richEditor.debug.xcconfig */;
+			baseConfigurationReference = 46724507492F5CFC7E59F9C6 /* Pods-unityBlog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 26NU4Q2GJC;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = richEditor/Info.plist;
+				INFOPLIST_FILE = unityBlog/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Unity-Blog";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -516,8 +526,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = richEditor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nnn.unity.app;
+				PRODUCT_NAME = unityBlog;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -526,12 +536,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-richEditor.release.xcconfig */;
+			baseConfigurationReference = 168FDCC49025277387115AB3 /* Pods-unityBlog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = richEditor/Info.plist;
+				DEVELOPMENT_TEAM = 26NU4Q2GJC;
+				INFOPLIST_FILE = unityBlog/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Unity-Blog";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -542,8 +554,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = richEditor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nnn.unity.app;
+				PRODUCT_NAME = unityBlog;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -713,7 +725,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "richEditorTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "unityBlogTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -722,7 +734,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "richEditor" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "unityBlog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -731,7 +743,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "richEditor" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "unityBlog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
