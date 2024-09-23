@@ -11,12 +11,6 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		424D0B382C92CE8F00C8400E /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 424D0B372C92CE8F00C8400E /* AntDesign.ttf */; };
-		424D0B3A2C92CEA700C8400E /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 424D0B392C92CEA700C8400E /* Ionicons.ttf */; };
-		424D0B3F2C92E9B600C8400E /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 424D0B3B2C92CEB800C8400E /* Feather.ttf */; };
-		424D0B402C92E9BD00C8400E /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 424D0B3C2C92CEC300C8400E /* FontAwesome.ttf */; };
-		424D0B412C92E9C100C8400E /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 424D0B3D2C92CED300C8400E /* MaterialCommunityIcons.ttf */; };
-		424D0B422C92E9C700C8400E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 424D0B3E2C92CEE300C8400E /* MaterialIcons.ttf */; };
 		57FB9CF37C94C4731105E15D /* libPods-unityBlog-unityBlogTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DD9DA65FFBEC7CF32FB0C2 /* libPods-unityBlog-unityBlogTests.a */; };
 		645481EC2630B2A915C4DCF8 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B5701CF4640D2E7CC92DD9 /* PrivacyInfo.xcprivacy */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -280,14 +274,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				424D0B422C92E9C700C8400E /* MaterialIcons.ttf in Resources */,
-				424D0B412C92E9C100C8400E /* MaterialCommunityIcons.ttf in Resources */,
-				424D0B402C92E9BD00C8400E /* FontAwesome.ttf in Resources */,
-				424D0B3F2C92E9B600C8400E /* Feather.ttf in Resources */,
-				424D0B3A2C92CEA700C8400E /* Ionicons.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				424D0B382C92CE8F00C8400E /* AntDesign.ttf in Resources */,
 				645481EC2630B2A915C4DCF8 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

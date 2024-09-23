@@ -12,6 +12,7 @@ import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {Platform, SafeAreaView, StatusBar} from 'react-native';
 import {viewStyles} from '@src/utility/ViewStyles';
 import {UserProvider} from '@src/config/userContext';
+import Toast from 'react-native-toast-message';
 
 function App(): React.JSX.Element {
   const queryClient = new QueryClient();
@@ -27,6 +28,7 @@ function App(): React.JSX.Element {
           </NavigationContainer>
         </UserProvider>
       </SafeAreaView>
+      <Toast />
     </QueryClientProvider>
   );
 }
