@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
-  ScrollView,
+  FlatList,
+  ActivityIndicator,
 } from 'react-native';
-import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import {styles} from './styles';
 import {useNetInfo} from '@react-native-community/netinfo';
 import {
@@ -26,13 +27,26 @@ import {
 import {Post} from '@src/components/post';
 import {ROUTES_CONSTANTS} from '@src/config/RoutesConstants';
 import {StackNavigationProp} from '@react-navigation/stack';
-import { viewStyles } from '@src/utility/ViewStyles';
+import {viewStyles} from '@src/utility/ViewStyles';
+import AppColors from '@src/utility/AppColors';
+import {UserContext} from '@src/config/userContext';
 
 type NavigationProp = StackNavigationProp<RootStackParamList, 'EDIT'>;
 
+const POSTS_PER_PAGE = 10;
+
 export default function HomeScreen({navigation}: {navigation: NavigationProp}) {
+  const {user} = useContext(UserContext);
   const netInfo = useNetInfo();
-  const {data: allPosts, isLoading, isError, refetch} = usePostsQuery();
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isLoading,
+    isError,
+    refetch,
+    isFetchingNextPage,
+  } = usePostsQuery(POSTS_PER_PAGE);
   const createPostMutation = useCreatePostMutation();
   const editPostMutation = useEditPostMutation();
   const deletePostMutation = useDeletePostMutation();
@@ -69,53 +83,66 @@ export default function HomeScreen({navigation}: {navigation: NavigationProp}) {
     // No need to do anything here as we're already using cached data
   };
 
-  useFocusEffect(
-    React.useCallback(() => {
-      const unsubscribe = () => {
-        if (netInfo.isConnected) {
-          onlineAction();
-        } else {
-          offlineAction();
-        }
-      };
+  useEffect(() => {
+    if (netInfo.isConnected) {
+      onlineAction();
+    } else {
+      offlineAction();
+    }
+  }, [netInfo.isConnected]);
 
-      return () => unsubscribe();
-    }, []),
-  );
-
-  const Reload = async () => {
-    console.log('refresh');
-    await refetch();
+  const _onEditPost = (post: any, isEditDisabled: Boolean) => {
+    navigation.navigate(ROUTES_CONSTANTS.EDIT, {post, isEditDisabled});
   };
 
-  const _onEditPost = (post: any) => {
-    console.log('post', post)
-    navigation.navigate(ROUTES_CONSTANTS.EDIT, {post});
+  const renderItem = ({item}: {item: any}) => {
+    const isEditDisabled = item?.user?.id !== user?.id;
+    return (
+      <Post post={item} onEdit={_onEditPost} isEditDisabled={isEditDisabled} />
+    );
+  };
+
+  const loadMore = () => {
+    if (hasNextPage && !isFetchingNextPage) {
+      fetchNextPage();
+    }
+  };
+
+  const renderFooter = () => {
+    if (!isFetchingNextPage) return null;
+    return (
+      <View style={styles.loadingFooter}>
+        <ActivityIndicator size="small" color={AppColors.primary} />
+      </View>
+    );
   };
 
   if (isLoading) return <Text>Loading...</Text>;
   if (isError) return <Text>Error fetching posts</Text>;
 
+  const allPosts = data?.pages.flatMap(page => page.posts) || [];
+
   return (
-    <View style={viewStyles.containerWithBg}>
-    <ScrollView keyboardShouldPersistTaps="handled">
-      <View style={{flex: 1, margin: 20, justifyContent: 'center'}}>
-        <Text>All Posts</Text>
-        {allPosts?.map((post: any, index: any) => (
-          <Post post={post} key={index} onEdit={_onEditPost} />
-        ))}
-        <TouchableOpacity
-          style={[styles.button, styles.newPostBtn]}
-          onPress={() => navigation.navigate(ROUTES_CONSTANTS.WRITE)}>
-          <Text style={[styles.buttonText, {color: '#fff'}]}>New Post</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, styles.refreshBtn]}
-          onPress={Reload}>
-          <Text style={styles.buttonText}>Refresh</Text>
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+    <View style={viewStyles.paddedContainer}>
+      <Text style={[viewStyles.titleText, {marginBottom: 5}]}>Blogs</Text>
+      <FlatList
+        data={allPosts}
+        renderItem={renderItem}
+        keyExtractor={item => item.id.toString()}
+        onEndReached={loadMore}
+        onEndReachedThreshold={0.1}
+        ListFooterComponent={renderFooter}
+      />
+      <TouchableOpacity
+        style={[styles.button, styles.newPostBtn]}
+        onPress={() => navigation.navigate(ROUTES_CONSTANTS.WRITE)}>
+        <Text style={[styles.buttonText, {color: '#fff'}]}>New Blog</Text>
+      </TouchableOpacity>
+      {/* <TouchableOpacity
+        style={[styles.button, styles.refreshBtn]}
+        onPress={() => refetch()}>
+        <Text style={styles.buttonText}>Refresh</Text>
+      </TouchableOpacity> */}
     </View>
   );
 }

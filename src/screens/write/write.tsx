@@ -8,6 +8,9 @@ import {
   View,
   TextInput,
   ScrollView,
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import {actions, RichEditor, RichToolbar} from 'react-native-pell-rich-editor';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -20,13 +23,15 @@ import {
 import {NEW_POSTS_CACHE_KEY} from '@src/network/storage/postsStorage';
 import {ScreenHeader} from '@src/components/absoluteBackHeader';
 import {viewStyles} from '@src/utility/ViewStyles';
+import {ROUTES_CONSTANTS} from '@src/config/RoutesConstants';
+import {showErrorToast} from '@src/utility/toast';
 
 const mmkv = new MMKV();
 
 // Define types
 type Post = {
   id?: string;
-  image: string;
+  imageUrl: string;
   title: string;
   content: string;
   date: string;
@@ -91,6 +96,15 @@ export default function Write({navigation, route}: WriteProps) {
   };
 
   const submitContent = (complete: boolean) => {
+    if (!richTitle.trimStart()) {
+      showErrorToast('Title is required');
+      return;
+    }
+
+    if (!richCategory.trimStart()) {
+      showErrorToast('Category is required');
+      return;
+    }
     const replaceHTML = descHTML.replace(/<(.|\n)*?>/g, '').trim();
     const replaceWhiteSpace = replaceHTML.replace(/&nbsp;/g, '').trim();
 
@@ -100,7 +114,7 @@ export default function Write({navigation, route}: WriteProps) {
     }
 
     const newPost: Post = {
-      image: richImg || 'https://www.w3schools.com/css/img_5terre.jpg',
+      ...(richImg? {imageUrl: richImg}: {}),
       title: richTitle || 'Untitled',
       content: descHTML || 'No content',
       date: new Date().toISOString().split('T')[0],
@@ -119,7 +133,7 @@ export default function Write({navigation, route}: WriteProps) {
     newPosts.push(newPost);
     mmkv.set(NEW_POSTS_CACHE_KEY, JSON.stringify(newPosts));
 
-    navigation.navigate('Posts');
+    navigation.navigate(ROUTES_CONSTANTS.HOME_SCREEN);
   };
 
   const handleHead =
@@ -128,93 +142,90 @@ export default function Write({navigation, route}: WriteProps) {
       <Text style={{color: tintColor}}>{`H${level}`}</Text>;
 
   return (
-    <View style={viewStyles.container}>
-      <ScreenHeader title="Write Post" />
-      <ScrollView
-        keyboardShouldPersistTaps="handled"
-        contentContainerStyle={styles.container}>
-        <Pressable onPress={() => richText.current?.dismissKeyboard()}>
-          <Text style={styles.headerStyle}>
-            {isEditing ? 'Edit Post' : 'Create New Post'}
-          </Text>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={viewStyles.container}>
+      <ScreenHeader title={isEditing ? 'Edit Blog' : 'Create Blog'} />
+      <ScrollView keyboardShouldPersistTaps="handled" style={styles.container}>
+        <Pressable onPress={() => Keyboard.dismiss()}>
+          <TextInput
+            style={styles.input}
+            placeholder="Image URL"
+            onChangeText={setRichImg}
+            value={richImg}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Title"
+            onChangeText={setRichTitle}
+            value={richTitle}
+          />
+          <View style={styles.richTextContainer}>
+            <RichEditor
+              ref={richText}
+              onChange={richTextHandle}
+              placeholder="Write your cool content here :)"
+              androidHardwareAccelerationDisabled={true}
+              style={styles.richTextEditorStyle}
+              initialHeight={250}
+            />
+            <RichToolbar
+              editor={richText}
+              selectedIconTint="#873c1e"
+              iconTint="#312921"
+              actions={[
+                actions.setBold,
+                actions.setItalic,
+                actions.insertBulletsList,
+                actions.insertOrderedList,
+                actions.insertLink,
+                actions.setStrikethrough,
+                actions.setUnderline,
+                actions.checkboxList,
+                actions.heading1,
+                actions.heading2,
+                actions.heading3,
+                actions.heading4,
+                actions.heading5,
+              ]}
+              style={styles.richTextToolbarStyle}
+              iconMap={{
+                [actions.heading1]: handleHead(1),
+                [actions.heading2]: handleHead(2),
+                [actions.heading3]: handleHead(3),
+                [actions.heading4]: handleHead(4),
+                [actions.heading5]: handleHead(5),
+              }}
+            />
+          </View>
+          {showDescError && (
+            <Text style={styles.errorTextStyle}>
+              Your content shouldn't be empty 🤔
+            </Text>
+          )}
+          <TextInput
+            style={styles.input}
+            placeholder="Category"
+            onChangeText={setRichCategory}
+            value={richCategory}
+          />
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => submitContent(false)}>
+            <Text style={styles.buttonText}>Save as Draft</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => submitContent(true)}>
+            <Text style={styles.buttonText}>Publish</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate(ROUTES_CONSTANTS.HOME_SCREEN)}>
+            <Text style={styles.buttonText}>Blogs list</Text>
+          </TouchableOpacity>
         </Pressable>
-        <TextInput
-          style={styles.input}
-          placeholder="Image URL"
-          onChangeText={setRichImg}
-          value={richImg}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Title"
-          onChangeText={setRichTitle}
-          value={richTitle}
-        />
-        <View style={styles.richTextContainer}>
-          <RichEditor
-            ref={richText}
-            onChange={richTextHandle}
-            placeholder="Write your cool content here :)"
-            androidHardwareAccelerationDisabled={true}
-            style={styles.richTextEditorStyle}
-            initialHeight={250}
-          />
-          <RichToolbar
-            editor={richText}
-            selectedIconTint="#873c1e"
-            iconTint="#312921"
-            actions={[
-              actions.setBold,
-              actions.setItalic,
-              actions.insertBulletsList,
-              actions.insertOrderedList,
-              actions.insertLink,
-              actions.setStrikethrough,
-              actions.setUnderline,
-              actions.checkboxList,
-              actions.heading1,
-              actions.heading2,
-              actions.heading3,
-              actions.heading4,
-              actions.heading5,
-            ]}
-            style={styles.richTextToolbarStyle}
-            iconMap={{
-              [actions.heading1]: handleHead(1),
-              [actions.heading2]: handleHead(2),
-              [actions.heading3]: handleHead(3),
-              [actions.heading4]: handleHead(4),
-              [actions.heading5]: handleHead(5),
-            }}
-          />
-        </View>
-        {showDescError && (
-          <Text style={styles.errorTextStyle}>
-            Your content shouldn't be empty 🤔
-          </Text>
-        )}
-        <TextInput
-          style={styles.input}
-          placeholder="Category"
-          onChangeText={setRichCategory}
-          value={richCategory}
-        />
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => submitContent(false)}>
-          <Text style={styles.buttonText}>Save as Draft</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => submitContent(true)}>
-          <Text style={styles.buttonText}>Publish</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('Posts')}>
-          <Text style={styles.buttonText}>Posts list</Text>
-        </TouchableOpacity>
       </ScrollView>
-    </View>
+    </KeyboardAvoidingView>
   );
 }

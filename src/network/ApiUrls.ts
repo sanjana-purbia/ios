@@ -9,8 +9,8 @@ const ApiUrls = {
   getAllPosts: 'posts',
   getPostById: (id: string) => `posts/${id}`,
   createPost: 'posts',
-  updatePost: (id: string) => `posts/${id}/edit`,
-  deletePost: (id: string) => `posts/${id}/delete`,
+  updatePost: (id: string) => `posts/${id}`,
+  deletePost: (id: string) => `posts/${id}`,
 
   // User
   getUserProfile: 'user/profile',

@@ -2,10 +2,8 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-      flex: 1,
       backgroundColor: '#ccaf9b',
       padding: 20,
-      alignItems: 'center',
     },
     headerStyle: {
       fontSize: 20,

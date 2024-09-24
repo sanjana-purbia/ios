@@ -37,7 +37,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (newUser) {
       mmkv.set('user', JSON.stringify(newUser));
     } else {
-      mmkv.delete('user');
+      mmkv.clearAll();
     }
   };
 

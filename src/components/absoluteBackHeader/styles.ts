@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
   headerView: {
     backgroundColor: AppColors.white,
     padding: AppConstants.MARGIN.SM_MARGIN,
-    marginBottom: 5,
     ...viewStyles.rowSpread,
   },
   logout: {
