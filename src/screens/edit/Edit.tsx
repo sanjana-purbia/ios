@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   Pressable,
   SafeAreaView,
@@ -44,17 +44,24 @@ const Edit: React.FC<EditScreenProps> = () => {
   const [showDescError, setShowDescError] = useState(false);
 
   // Use the provided hooks
-  const {data: post, isLoading, isError} = usePostQuery(id);
+  const {data: post, isLoading, isError, refetch} = usePostQuery(id);
   const editPostMutation = useEditPostMutation();
   const deletePostMutation = useDeletePostMutation();
-  React.useEffect(() => {
+
+  useEffect(() => {
+    if (id) {
+      refetch();
+    }
+  }, [id, refetch, route]);
+
+  useEffect(() => {
     if (post) {
       setRichImg(post.imageUrl);
       setRichTitle(post.title);
       setRichCategory(post.category);
       setDescHTML(post.content);
     }
-  }, [post]);
+  }, [post, route]);
 
   const richTextHandle = (descriptionText: string) => {
     if (descriptionText) {

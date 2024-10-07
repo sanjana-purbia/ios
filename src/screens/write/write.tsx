@@ -113,7 +113,7 @@ export default function Write({navigation, route}: WriteProps) {
       return;
     }
 
-    const newPost: Post = {
+    const newPost: any = {
       ...(richImg? {imageUrl: richImg}: {}),
       title: richTitle || 'Untitled',
       content: descHTML || 'No content',

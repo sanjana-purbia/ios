@@ -111,7 +111,7 @@ export default function HomeScreen({navigation}: {navigation: NavigationProp}) {
   const renderFooter = () => {
     if (!isFetchingNextPage) return null;
     return (
-      <View style={styles.loadingFooter}>
+      <View style={viewStyles.container}>
         <ActivityIndicator size="small" color={AppColors.primary} />
       </View>
     );
