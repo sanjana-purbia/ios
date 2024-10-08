@@ -161,7 +161,7 @@ const Edit: React.FC<EditScreenProps> = () => {
       style={viewStyles.container}>
       <ScreenHeader title={isEditDisabled ? 'View Blog' : 'Edit Blog'} />
       <ScrollView keyboardShouldPersistTaps="handled" style={styles.container}>
-        <Pressable onPress={() => Keyboard.dismiss()}>
+        <Pressable onPress={() => Keyboard.dismiss()} style={styles.paddedContainer}>
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}

@@ -29,6 +29,11 @@ const AppConstants = {
     MD_MARGIN: 15,
     LG_MARGIN: 20,
   },
+  ROLE: {
+    VIEWER: 'viewer',
+    ADMIN: 'admin',
+    EDITOR: 'editor'
+  }
 };
 
 export default AppConstants;

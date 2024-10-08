@@ -30,13 +30,15 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {viewStyles} from '@src/utility/ViewStyles';
 import AppColors from '@src/utility/AppColors';
 import {UserContext} from '@src/config/userContext';
+import AppConstants from '@src/utility/AppConstants';
 
 type NavigationProp = StackNavigationProp<RootStackParamList, 'EDIT'>;
 
 const POSTS_PER_PAGE = 10;
 
 export default function HomeScreen({navigation}: {navigation: NavigationProp}) {
-  const {user} = useContext(UserContext);
+  const {user, userRole} = useContext(UserContext);
+  const isEditDisabled = AppConstants.ROLE.VIEWER === userRole;
   const netInfo = useNetInfo();
   const {
     data,
@@ -74,12 +76,10 @@ export default function HomeScreen({navigation}: {navigation: NavigationProp}) {
   };
 
   const onlineAction = async () => {
-    console.log('You are Online');
     await updatePosts();
   };
 
   const offlineAction = () => {
-    console.log('You are Offline');
     // No need to do anything here as we're already using cached data
   };
 
@@ -91,12 +91,11 @@ export default function HomeScreen({navigation}: {navigation: NavigationProp}) {
     }
   }, [netInfo.isConnected]);
 
-  const _onEditPost = (post: any, isEditDisabled: Boolean) => {
+  const _onEditPost = (post: any) => {
     navigation.navigate(ROUTES_CONSTANTS.EDIT, {post, isEditDisabled});
   };
 
   const renderItem = ({item}: {item: any}) => {
-    const isEditDisabled = item?.user?.id !== user?.id;
     return (
       <Post post={item} onEdit={_onEditPost} isEditDisabled={isEditDisabled} />
     );
@@ -133,11 +132,13 @@ export default function HomeScreen({navigation}: {navigation: NavigationProp}) {
         onEndReachedThreshold={0.1}
         ListFooterComponent={renderFooter}
       />
-      <TouchableOpacity
-        style={[styles.button, styles.newPostBtn]}
-        onPress={() => navigation.navigate(ROUTES_CONSTANTS.WRITE)}>
-        <Text style={[styles.buttonText, {color: '#fff'}]}>New Blog</Text>
-      </TouchableOpacity>
+      {!isEditDisabled && (
+        <TouchableOpacity
+          style={[styles.button, styles.newPostBtn]}
+          onPress={() => navigation.navigate(ROUTES_CONSTANTS.WRITE)}>
+          <Text style={[styles.buttonText, {color: '#fff'}]}>New Blog</Text>
+        </TouchableOpacity>
+      )}
       {/* <TouchableOpacity
         style={[styles.button, styles.refreshBtn]}
         onPress={() => refetch()}>

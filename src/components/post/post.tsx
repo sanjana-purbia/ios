@@ -29,7 +29,7 @@ const Post: React.FC<PostProps> = ({post, onEdit, isEditDisabled}) => {
   const handleLike = () => setIsLiked(!isLiked);
 
   const handleEdit = () => {
-    onEdit(post, isEditDisabled);
+    onEdit(post);
   };
 
   const blogImg = post?.imageUrl ? {uri: post?.imageUrl} : defaultImg;

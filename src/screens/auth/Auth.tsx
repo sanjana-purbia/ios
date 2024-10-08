@@ -33,8 +33,8 @@ const AuthScreen = () => {
   const loginMutation = useMutation({
     mutationFn: () => loginUser({email, password}),
     onSuccess: (response: any) => {
-      const {accessToken, refreshToken, email, id} = response.data?.data;
-      setUser({id, email, accessToken, refreshToken});
+      const {accessToken, refreshToken, email, id, role} = response.data?.data;
+      setUser({id, email, accessToken, refreshToken, role});
       navigation.navigate(ROUTES_CONSTANTS.HOME_SCREEN);
     },
     onError: (error: any) => {
@@ -45,8 +45,8 @@ const AuthScreen = () => {
   const signupMutation = useMutation({
     mutationFn: () => signUpUser({email, password, name}),
     onSuccess: (response: any) => {
-      const {accessToken, refreshToken, email, id} = response.data?.data;
-      setUser({id, email, accessToken, refreshToken});
+      const {accessToken, refreshToken, email, id, role} = response.data?.data;
+      setUser({id, email, accessToken, refreshToken, role});
       navigation.navigate(ROUTES_CONSTANTS.HOME_SCREEN);
     },
     onError: error => {
