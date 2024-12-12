@@ -1,3 +1,5 @@
+import AppColors from "@src/utility/AppColors";
+import AppConstants from "@src/utility/AppConstants";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -7,11 +9,14 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       width: '100%',
-      marginBottom: 10,
+      marginBottom: AppConstants.MARGIN.MD_MARGIN,
+      borderBottomWidth: 1,
+      borderBottomColor: AppColors.border,
+      padding: AppConstants.MARGIN.SM_MARGIN
     },
     image: {
-      width: 80,
-      height: 80,
+      width: 70,
+      height: 70,
       borderRadius: 50,
     },
     contentContainer: {
@@ -23,7 +28,7 @@ export const styles = StyleSheet.create({
     },
     header: {
       fontWeight: 'bold',
-      fontSize: 20,
+      fontSize: 18,
     },
     category: {
       fontSize: 10,

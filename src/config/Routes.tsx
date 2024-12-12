@@ -8,6 +8,11 @@ import Write from '@src/screens/write/write';
 import {UserContext} from './userContext';
 import { TouchableOpacity } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import Posts from '@src/screens/posts/Posts';
+import { NativeStackNavigationProp } from 'react-native-screens/lib/typescript/native-stack/types';
+import { RootStackParamList } from '@src/types/rootStackParamList';
+
+type NavigatorProps = {};
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -21,7 +26,7 @@ const Routes = () => {
           <Stack.Screen
             name={ROUTES_CONSTANTS.HOME_SCREEN}
             options={{
-              title: 'Home',
+              title: `Pratik's Unity`,
               headerShown: true,
               headerRight: () => {
                 return (
@@ -33,6 +38,7 @@ const Routes = () => {
             }}
             component={HomeScreen}
           />
+          <Stack.Screen name={ROUTES_CONSTANTS.POSTS} component={Posts} />
           <Stack.Screen name={ROUTES_CONSTANTS.EDIT} component={Edit} />
           <Stack.Screen name={ROUTES_CONSTANTS.WRITE} component={Write} />
         </>

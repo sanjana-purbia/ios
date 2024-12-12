@@ -1,9 +1,7 @@
-export const API_STATUS = {
-  FETCHING: 'fetching',
-  SUCCESS: 'success',
-  ERROR: 'error',
-  NOT_STARTED: 'not_started',
-};
+import { setDraftPostsInStorage, setPostsInStorage, setPublishedPostsInStorage } from "@src/network/storage/postsStorage";
+import { Platform } from "react-native";
+
+export const isIos = Platform.OS === 'ios'
 
 export const isValidUrl = (str: string) => {
   var pattern = new RegExp(
@@ -17,4 +15,34 @@ export const isValidUrl = (str: string) => {
   );
 
   return !!pattern.test(str);
+};
+
+export const dispalyDateFormat = (date: Date) => {
+  const formattedDate = new Date(date).toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: 'numeric' });
+  return formattedDate;
+};
+
+
+export const processPosts = (posts: any[]) => {
+  // Sort posts by creation date
+  const sortedPosts = posts.sort((a, b) => {
+    const dateA = new Date(a.createdAt);
+    const dateB = new Date(b.createdAt);
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  // Separate published and draft posts
+  const publishedPosts = sortedPosts.filter((post: any) => post.isComplete);
+  const draftPosts = sortedPosts.filter((post: any) => !post.isComplete);
+
+  // Save to storage
+  setPostsInStorage(sortedPosts);
+  setPublishedPostsInStorage(publishedPosts);
+  setDraftPostsInStorage(draftPosts);
+
+  return {
+    allPosts: sortedPosts,
+    publishedPosts,
+    draftPosts
+  };
 };

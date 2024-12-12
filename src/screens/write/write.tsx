@@ -1,8 +1,6 @@
 import React, {useRef, useState} from 'react';
 import {
   Pressable,
-  SafeAreaView,
-  StyleSheet,
   Text,
   TouchableOpacity,
   View,
@@ -10,44 +8,23 @@ import {
   ScrollView,
   Keyboard,
   KeyboardAvoidingView,
-  Platform,
 } from 'react-native';
 import {actions, RichEditor, RichToolbar} from 'react-native-pell-rich-editor';
-import {StackNavigationProp} from '@react-navigation/stack';
 import {MMKV} from 'react-native-mmkv';
 import {styles} from './styles';
 import {
   useCreatePostMutation,
   useEditPostMutation,
 } from '@src/network/hooks/usePosts';
-import {NEW_POSTS_CACHE_KEY} from '@src/network/storage/postsStorage';
+import {STORAGE_KEYS} from '@src/network/storage/postsStorage';
 import {ScreenHeader} from '@src/components/absoluteBackHeader';
 import {viewStyles} from '@src/utility/ViewStyles';
 import {ROUTES_CONSTANTS} from '@src/config/RoutesConstants';
 import {showErrorToast} from '@src/utility/toast';
+import { WriteScreenNavigationProp } from '@src/types/rootStackParamList';
+import { isIos } from '@src/utility';
 
 const mmkv = new MMKV();
-
-// Define types
-type Post = {
-  id?: string;
-  imageUrl: string;
-  title: string;
-  content: string;
-  date: string;
-  category: string;
-  isComplete: boolean;
-};
-
-type RootStackParamList = {
-  Write: {postId?: string} | undefined;
-  Posts: undefined;
-};
-
-type WriteScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'Write'
->;
 
 type WriteProps = {
   navigation: WriteScreenNavigationProp;
@@ -66,6 +43,7 @@ export default function Write({navigation, route}: WriteProps) {
   const [richImg, setRichImg] = useState('');
   const [richTitle, setRichTitle] = useState('');
   const [richCategory, setRichCategory] = useState('');
+  const [richSummary, setRichSummary] = useState('');
   const [descHTML, setDescHTML] = useState('');
   const [showDescError, setShowDescError] = useState(false);
 
@@ -105,6 +83,12 @@ export default function Write({navigation, route}: WriteProps) {
       showErrorToast('Category is required');
       return;
     }
+
+    if (!richSummary.trimStart()) {
+      showErrorToast('Summary is required');
+      return;
+    }
+
     const replaceHTML = descHTML.replace(/<(.|\n)*?>/g, '').trim();
     const replaceWhiteSpace = replaceHTML.replace(/&nbsp;/g, '').trim();
 
@@ -113,13 +97,14 @@ export default function Write({navigation, route}: WriteProps) {
       return;
     }
 
-    const newPost: any = {
-      ...(richImg? {imageUrl: richImg}: {}),
+    const newPost: BlogPost = {
+      // ...(richImg? {imageUrl: richImg}: {}),
       title: richTitle || 'Untitled',
       content: descHTML || 'No content',
       date: new Date().toISOString().split('T')[0],
       category: richCategory || 'News',
       isComplete: complete,
+      summary: richSummary
     };
 
     if (isEditing) {
@@ -129,11 +114,11 @@ export default function Write({navigation, route}: WriteProps) {
     }
 
     // Store the new post in MMKV storage
-    const newPosts = JSON.parse(mmkv.getString(NEW_POSTS_CACHE_KEY) || '[]');
+    const newPosts = JSON.parse(mmkv.getString(STORAGE_KEYS.NEW_POSTS_CACHE_KEY) || '[]');
     newPosts.push(newPost);
-    mmkv.set(NEW_POSTS_CACHE_KEY, JSON.stringify(newPosts));
+    mmkv.set(STORAGE_KEYS.NEW_POSTS_CACHE_KEY, JSON.stringify(newPosts));
 
-    navigation.navigate(ROUTES_CONSTANTS.HOME_SCREEN);
+    navigation.goBack();
   };
 
   const handleHead =
@@ -143,7 +128,7 @@ export default function Write({navigation, route}: WriteProps) {
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={isIos ? 'padding' : 'height'}
       style={viewStyles.container}>
       <ScreenHeader title={isEditing ? 'Edit Blog' : 'Create Blog'} />
       <ScrollView keyboardShouldPersistTaps="handled" style={styles.container}>
@@ -203,6 +188,13 @@ export default function Write({navigation, route}: WriteProps) {
               Your content shouldn't be empty 🤔
             </Text>
           )}
+          <TextInput
+            style={styles.input}
+            placeholder="Summary"
+            onChangeText={setRichSummary}
+            value={richSummary}
+            multiline={true}
+          />
           <TextInput
             style={styles.input}
             placeholder="Category"

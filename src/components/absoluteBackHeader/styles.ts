@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
     backgroundColor: AppColors.white,
     padding: AppConstants.MARGIN.SM_MARGIN,
     ...viewStyles.rowSpread,
+    marginBottom: 3
   },
   logout: {
     marginRight: AppConstants.MARGIN.SM_MARGIN

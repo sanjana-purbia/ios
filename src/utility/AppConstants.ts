@@ -32,7 +32,18 @@ const AppConstants = {
   ROLE: {
     VIEWER: 'viewer',
     ADMIN: 'admin',
-    EDITOR: 'editor'
+    EDITOR: 'editor',
+    SUPER_ADMIN: 'superAdmin'
+  },
+  API_STATUS : {
+    FETCHING: 'fetching',
+    SUCCESS: 'success',
+    ERROR: 'error',
+    NOT_STARTED: 'not_started',
+  },
+  BLOG_STATUS : {
+    Published: 'Published',
+    Draft: 'Draft',
   }
 };
 

@@ -9,6 +9,7 @@ interface Styles {
   text: TextStyle;
   boldText: TextStyle;
   smallBoldText: TextStyle;
+  smallGrayText: TextStyle;
   titleText: TextStyle;
   headerText: TextStyle;
   buttonText: TextStyle;
@@ -19,6 +20,7 @@ interface Styles {
   rowSpread: ViewStyle;
   rowCentered: ViewStyle;
   centered: ViewStyle;
+  rightAligned: ViewStyle;
 }
 
 export const viewStyles = StyleSheet.create<Styles>({
@@ -49,6 +51,10 @@ export const viewStyles = StyleSheet.create<Styles>({
     fontSize: AppConstants.FONT_SIZE.f12,
     fontWeight: 'bold',
   },
+  smallGrayText: {
+    fontSize: AppConstants.FONT_SIZE.f12,
+    color: AppColors.gray_text,
+  },
   titleText: {
     fontSize: AppConstants.FONT_SIZE.f22,
     fontWeight: 'bold',
@@ -78,4 +84,5 @@ export const viewStyles = StyleSheet.create<Styles>({
     alignItems: 'center',
   },
   centered: {alignItems: 'center', justifyContent: 'center'},
+  rightAligned: {alignItems: 'flex-end', justifyContent: 'center'},
 });

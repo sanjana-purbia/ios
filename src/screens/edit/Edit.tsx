@@ -25,6 +25,8 @@ import {ROUTES_CONSTANTS} from '@src/config/RoutesConstants';
 import {viewStyles} from '@src/utility/ViewStyles';
 import {ScreenHeader} from '@src/components/absoluteBackHeader';
 import {showErrorToast, showSuccessToast} from '@src/utility/toast';
+import { EditProps } from '@src/types/rootStackParamList';
+import { isIos } from '@src/utility';
 
 interface EditScreenProps {
   post: any;
@@ -32,7 +34,7 @@ interface EditScreenProps {
 }
 
 const Edit: React.FC<EditScreenProps> = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<EditProps>();
   const route: any = useRoute();
   const richText = useRef<RichEditor>(null);
   const {isEditDisabled} = route?.params || {};
@@ -42,6 +44,7 @@ const Edit: React.FC<EditScreenProps> = () => {
   const [richCategory, setRichCategory] = useState(category);
   const [descHTML, setDescHTML] = useState(content);
   const [showDescError, setShowDescError] = useState(false);
+  const [richSummary, setRichSummary] = useState('');
 
   // Use the provided hooks
   const {data: post, isLoading, isError, refetch} = usePostQuery(id);
@@ -60,6 +63,7 @@ const Edit: React.FC<EditScreenProps> = () => {
       setRichTitle(post.title);
       setRichCategory(post.category);
       setDescHTML(post.content);
+      setRichSummary(post.summary)
     }
   }, [post, route]);
 
@@ -79,8 +83,8 @@ const Edit: React.FC<EditScreenProps> = () => {
       return;
     }
 
-    if (!richCategory.trimStart()) {
-      showErrorToast('Category is required');
+    if (!richSummary?.trimStart()) {
+      showErrorToast('Summary is required');
       return;
     }
     const replaceHTML = descHTML.replace(/<(.|\n)*?>/g, '').trim();
@@ -89,19 +93,20 @@ const Edit: React.FC<EditScreenProps> = () => {
     if (replaceWhiteSpace.length <= 0) {
       setShowDescError(true);
     } else {
-      const updatedPost: Post = {
+      const updatedPost: BlogPost = {
         id: id,
-        ...(richImg? {imageUrl: richImg}: {}),
+        // ...(richImg? {imageUrl: richImg}: {}),
         title: richTitle || 'Untitled',
         content: descHTML || 'No content',
         date: new Date().toISOString(),
-        category: richCategory || 'News',
+        summary: richSummary,
+        // category: richCategory || 'News',
         isComplete: complete,
       };
       editPostMutation.mutate(updatedPost, {
         onSuccess: () => {
           showSuccessToast('Blog updated successfully');
-          navigation.navigate(ROUTES_CONSTANTS.HOME_SCREEN);
+          navigation.goBack();
         },
         onError: error => {
           console.error('Error updating post:', error);
@@ -126,7 +131,7 @@ const Edit: React.FC<EditScreenProps> = () => {
             deletePostMutation.mutate(id, {
               onSuccess: () => {
                 showSuccessToast('Blog deleted successfully');
-                navigation.navigate(ROUTES_CONSTANTS.HOME_SCREEN);
+                navigation.goBack();
               },
               onError: error => {
                 console.error('Error deleting post:', error);
@@ -157,7 +162,7 @@ const Edit: React.FC<EditScreenProps> = () => {
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={isIos ? 'padding' : 'height'}
       style={viewStyles.container}>
       <ScreenHeader title={isEditDisabled ? 'View Blog' : 'Edit Blog'} />
       <ScrollView keyboardShouldPersistTaps="handled" style={styles.container}>
@@ -183,7 +188,6 @@ const Edit: React.FC<EditScreenProps> = () => {
               ref={richText}
               onChange={richTextHandle}
               placeholder="Write your cool content here :)"
-              androidHardwareAccelerationDisabled={true}
               style={styles.richTextEditorStyle}
               initialHeight={250}
               initialContentHTML={descHTML}
@@ -231,6 +235,13 @@ const Edit: React.FC<EditScreenProps> = () => {
             value={richCategory}
             editable={!isEditDisabled}
           />
+          <TextInput
+            style={styles.input}
+            placeholder="Summary"
+            onChangeText={setRichSummary}
+            value={richSummary}
+            editable={!isEditDisabled}
+          />
           {isEditDisabled ? null : (
             <>
               <View style={styles.buttonGroup}>
@@ -253,8 +264,8 @@ const Edit: React.FC<EditScreenProps> = () => {
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.button}
-                  onPress={() =>
-                    navigation.navigate(ROUTES_CONSTANTS.HOME_SCREEN)
+                  onPress={() => {}
+                    // navigation.navigate(ROUTES_CONSTANTS.HOME_SCREEN)
                   }>
                   <Text style={styles.buttonText}>Blogs list</Text>
                 </TouchableOpacity>
