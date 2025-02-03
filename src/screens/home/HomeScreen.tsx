@@ -17,7 +17,7 @@ import {ROUTES_CONSTANTS} from '@config/RoutesConstants';
 import {UserContext} from '@config/userContext';
 
 import AppConstants from '@utility/AppConstants';
-import {dispalyDateFormat, processPosts} from '@src/utility';
+import {displayDateFormat, processPosts} from '@src/utility';
 import {viewStyles} from '@utility/ViewStyles';
 
 import {EditProps} from '@src/types/rootStackParamList';
@@ -47,7 +47,6 @@ export default function HomeScreen() {
   const [allPosts, setAllPosts] = useState<BlogPost[]>([]);
   const [publishedPosts, setPublishedPosts] = useState<BlogPost[]>([]);
   const [draftPosts, setDraftPosts] = useState<BlogPost[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [isSyncing, setIsSyncing] = useState(true);
 
   const getAllPostsMutation = useGetAllPostsMutation();
@@ -82,7 +81,6 @@ export default function HomeScreen() {
     } catch (error) {
       console.error('Error fetching posts:', error);
     } finally {
-      setIsLoading(false);
       setIsSyncing(false);
     }
   };
@@ -119,11 +117,11 @@ export default function HomeScreen() {
   );
 
   // Show loader while syncing or loading
-  if (isLoading || isSyncing) {
+  if (isSyncing) {
     return (
       <Loader
-        loading={isLoading || isSyncing}
-        loadingText={isSyncing ? 'Syncing...' : 'Loading...'}
+        loading={isSyncing}
+        loadingText={'Loading...'}
       />
     );
   }
@@ -147,7 +145,7 @@ export default function HomeScreen() {
               <Text style={viewStyles.headerText}>{featuredPost.title}</Text>
               <Text style={viewStyles.regularText}>{featuredPost.summary}</Text>
               <Text style={[viewStyles.smallGrayText, {alignSelf: 'flex-end'}]}>
-                {dispalyDateFormat(featuredPost?.date)}
+                {displayDateFormat(featuredPost?.date)}
               </Text>
             </View>
           </View>
@@ -177,8 +175,8 @@ export default function HomeScreen() {
           scrollEnabled={false}
           data={
             activeTab === AppConstants.BLOG_STATUS.Published
-              ? publishedPosts
-              : draftPosts
+              ? publishedPosts.slice(0, 3) // Limit to 3 posts for Published
+              : draftPosts.slice(0, 3) // Limit to 3 posts for Draft
           }
           renderItem={renderItem}
           keyExtractor={item => item.id.toString()}

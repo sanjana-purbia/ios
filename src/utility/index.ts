@@ -17,7 +17,7 @@ export const isValidUrl = (str: string) => {
   return !!pattern.test(str);
 };
 
-export const dispalyDateFormat = (date: Date) => {
+export const displayDateFormat = (date: Date) => {
   const formattedDate = new Date(date).toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: 'numeric' });
   return formattedDate;
 };
