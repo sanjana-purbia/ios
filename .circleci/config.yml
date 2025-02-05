@@ -13,8 +13,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: |
-            ls -lah
+          command: ls -lah
 #************************************************************************************************
       # Node modules with caching 
       - node/install:
@@ -31,7 +30,7 @@ jobs:
           command: |
             bundle install
       # Installing Fastlane
-      - run:
+       - run:
           name: install fastlane 
           command: gem install fastlane
 workflows:
