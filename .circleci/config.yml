@@ -26,6 +26,14 @@ jobs:
           command: |
             node -v
             ruby -v
+       - run:
+          name: Install dependencies bundle
+          command: |
+            bundle install
+      # Installing Fastlane
+      - run:
+          name: install fastlane 
+          command: gem install fastlane
 workflows:
   build_and_test:
     jobs:
