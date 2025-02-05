@@ -14,11 +14,17 @@ jobs:
       - checkout
       - run:
           command: ls -lah
-# installng fastlane 
+#************************************************************************************************
+      # Node modules with caching 
+      - node/install:
+          node-version: '19.3.0' 
       - ruby/install:
           version: '2.7.5' 
       - run:
-          command: ruby -v
+          name: check v
+          command: |
+            node -v
+            ruby -v
 workflows:
   build_and_test:
     jobs:
