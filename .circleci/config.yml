@@ -20,8 +20,8 @@ jobs:
       # Node modules with caching 
       - node/install:
           node-version: '19.3.0' 
-      - ruby/install:
-          version: '2.7.5'
+      # - ruby/install:
+      #     version: '2.7.5'
       - run:
           name: check v
           command: |
