@@ -13,13 +13,15 @@ jobs:
     steps:
       - checkout
       - run:
-          command: ls -lah
+          command: |
+            ls -lah
+            brew install gnupg
 #************************************************************************************************
       # Node modules with caching 
       - node/install:
           node-version: '19.3.0' 
       - ruby/install:
-          version: '2.7.5' 
+          version: '2.7.5'
       - run:
           name: check v
           command: |
