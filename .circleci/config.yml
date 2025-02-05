@@ -18,7 +18,7 @@ jobs:
       - ruby/install:
           version: '2.7.5' 
       - run:
-          command: ruby --version
+          command: ruby -v
 workflows:
   build_and_test:
     jobs:
