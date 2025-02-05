@@ -15,7 +15,6 @@ jobs:
       - run:
           command: |
             ls -lah
-            brew install gnupg
 #************************************************************************************************
       # Node modules with caching 
       - node/install:
