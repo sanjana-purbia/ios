@@ -19,6 +19,6 @@ jobs:
       - checkout
 
   workflows:
-  ios:
+  builds:
     jobs:
       - ios
