@@ -12,7 +12,9 @@ jobs:
       xcode: 14.2
     steps:
       - checkout
-
+      - run:
+          name: checking code
+          command: ls -lah
 workflows:
   build_and_test:
     jobs:
