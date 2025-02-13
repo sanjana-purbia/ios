@@ -35,6 +35,12 @@ jobs:
           name: install fastlane 
           command: gem install fastlane 
       - run:
+          name: fastalne init
+          command: |
+            cd ios
+            ls -l
+            fastlane init 
+      - run:
           name: checking
           command: ls -l
 #******************************************************************************************
