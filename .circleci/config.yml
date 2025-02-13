@@ -29,6 +29,7 @@ jobs:
       - run:
           name: Install dependencies bundle
           command: |
+            gem install activesupport --version 7.0.8
             bundle install
       # Installing Fastlane
       - run:
