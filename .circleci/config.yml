@@ -17,7 +17,7 @@ jobs:
 #************************************************************************************************
       # Node modules with caching 
       - node/install:
-          node-version: '19.3.0' 
+          node-version: '20.9.0' 
       # - ruby/install:
       #     version: '2.7.5'
       #cococapods install (3.0.5) after ruby 
@@ -34,6 +34,11 @@ jobs:
       - run:
           name: install fastlane 
           command: gem install fastlane 
+      - run: 
+          name: node modules check
+          command: |
+            npm install
+            ls -l
 
       - run: 
           name: pod install
