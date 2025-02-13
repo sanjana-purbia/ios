@@ -9,7 +9,7 @@ jobs:
   # iOS Build
   ios:
     macos:
-      xcode: 14.2
+      xcode: 15.0.1
     steps:
       - checkout
       - run:
