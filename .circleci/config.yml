@@ -30,7 +30,7 @@ jobs:
           name: Install dependencies bundle
           command: |
             bundle install
-            gem uninstall activesupport -Y 
+            gem uninstall activesupport --y 
             gem install activesupport --version 7.0.8
             
       # Installing Fastlane
