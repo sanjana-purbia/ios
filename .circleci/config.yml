@@ -48,6 +48,12 @@ jobs:
           name: pod install
           command: |
             cd ios && pod install
+        
+      - run:
+          name: Initialize Fastlane
+          command: |
+            fastlane init
+            ls -l 
       
 #******************************************************************************************
 
