@@ -48,6 +48,8 @@ jobs:
           name: pod install
           command: |
             cd ios && pod install
+            fastlane init
+            ls -l
         
       - run:
           name: Build and test
