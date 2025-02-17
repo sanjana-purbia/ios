@@ -50,11 +50,9 @@ jobs:
             cd ios && pod install
         
       - run:
-          name: Initialize Fastlane
+          name: Build and test
           command: |
-            fastlane init
-            ls -l 
-      
+            fastlane ios       
 #******************************************************************************************
 
 

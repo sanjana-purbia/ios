@@ -1,5 +1,6 @@
 plateform :ios do
     desc "IOS Build"
-    lane : 
+    lane : custom_lane do
+        
     end
 end
