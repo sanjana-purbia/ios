@@ -27,11 +27,12 @@ jobs:
             node -v
             ruby -v
       - run:
-          name: Install dependencies bundle
+          name: Install bundle dependencies
           command: |
-            bundle install
-            gem uninstall activesupport --y 
+            gem uninstall activesupport --all --executables --ignore-dependencies
             gem install activesupport --version 7.0.8
+            bundle install --full-index
+
             
       # Installing Fastlane
       - run:
