@@ -48,14 +48,23 @@ jobs:
           name: pod install
           command: |
             cd ios && pod install
-            fastlane init
+            
+      - run:
+          name: initial fastlane 
+          command: |
+            cd ios && fastlane init
             ls -l
+
         
       - run:
           name: Build and test
           command: |
             fastlane ios       
 #******************************************************************************************
+      - run: 
+          name: create apk
+          command: aws s3 cp ios/build/outputs/apk/debug/app-debug.apk s3://my-bucket-name/app-debug.apk
+          
 
 
 workflows:
