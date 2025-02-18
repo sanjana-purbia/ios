@@ -1,4 +1,4 @@
-plateform :ios do
+platform :ios do
     desc "IOS Build"
     lane : custom_lane do
 

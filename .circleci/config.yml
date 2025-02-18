@@ -60,7 +60,7 @@ jobs:
       - run:
           name: Build and test
           command: |
-            fastlane custom_lane       
+            fastlane ios
 #******************************************************************************************
       # - run: 
       #     name: create apk
