@@ -59,11 +59,11 @@ jobs:
       - run:
           name: Build and test
           command: |
-            fastlane ios       
+            bundle exec fastlane ios       
 #******************************************************************************************
-      - run: 
-          name: create apk
-          command: aws s3 cp ios/build/outputs/apk/debug/app-debug.apk s3://my-bucket-name/app-debug.apk
+      # - run: 
+      #     name: create apk
+      #     command: aws s3 cp ios/build/outputs/apk/debug/app-debug.apk s3://my-bucket-name/app-debug.apk
           
 
 
