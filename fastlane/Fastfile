@@ -1,6 +1,6 @@
 platform :ios do
     desc "IOS Build"
-    lane : custom_lane do
+    lane :custom_lane do
 
     end
     # lane : load_asc_api_key do
