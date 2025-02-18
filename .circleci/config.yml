@@ -49,11 +49,11 @@ jobs:
           command: |
             cd ios && pod install
             
-      - run:
-          name: initial fastlane 
-          command: |
-            cd ios && fastlane init
-            ls -l
+      # - run:
+      #     name: initial fastlane 
+      #     command: |
+      #       cd ios && fastlane init
+      #       ls -l
 
         
       - run:

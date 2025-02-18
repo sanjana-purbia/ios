@@ -1,0 +1,3 @@
+# app_identifier "com.example.yourapp" # Replace with your app identifier
+# apple_id "yourappleid@example.com"   # Replace with your Apple ID
+app_identifier(“com.nnn.unity.app”)
