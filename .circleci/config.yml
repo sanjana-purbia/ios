@@ -49,18 +49,18 @@ jobs:
           command: |
             cd ios && pod install
             
-      - run:
-          name: initial fastlane 
-          command: |
-            bundle update --bundler
-            cd ios && bundle exec fastlane init
-            ls -l
+      # - run:
+      #     name: initial fastlane 
+      #     command: |
+      #       bundle update --bundler
+      #       cd ios && bundle exec fastlane init
+      #       ls -l
 
         
       - run:
           name: Build and test
           command: |
-            bundle exec fastlane ios       
+            fastlane custom_lane       
 #******************************************************************************************
       # - run: 
       #     name: create apk

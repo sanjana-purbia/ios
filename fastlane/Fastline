@@ -1,6 +1,27 @@
 plateform :ios do
     desc "IOS Build"
     lane : custom_lane do
-        
+
     end
+    # lane : load_asc_api_key do
+    #     app_store_connect_api_key(
+    #         key_id: "D83848D23",
+    #         issuer_id: "227b0bbf-ada8-458c-9d62-3d8022b7d07f",
+    #         key_content: "ABC123" // base64 encoded key,
+    #         is_key_content_base64: true,
+    #         in_house: false #boolean value if team is Enterprise or not
+    #     )
+    # end
+    # lane : build do
+    #     gym(
+    #         scheme: "MyApp",
+    #         configuration: "Release",
+    #         export_method: "app-store",
+    #         export_options: {
+    #             provisioningProfiles: {
+    #                 "com.example.app" => "MyApp AppStore"
+    #             }
+    #         }
+    #     )
+    # end
 end
