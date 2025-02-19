@@ -1,7 +1,7 @@
 platform :ios do
     desc "IOS Build"
     lane :custom_lane do
-
+        puts "Hello from custom lane"
     end
     # lane : load_asc_api_key do
     #     app_store_connect_api_key(
