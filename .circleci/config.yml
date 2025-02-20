@@ -56,17 +56,18 @@ jobs:
       #       cd ios && bundle exec fastlane init
       #       ls -l
 
-        
+      
+
+#**********************fastlane integration of lane***************************
       - run:
           name: Build and test
           command: |
-            fastlane ios custom_lane
-
-#******************************************************************************************
-      # - run: 
-      #     name: create apk
-      #     command: aws s3 cp ios/build/outputs/apk/debug/app-debug.apk s3://my-bucket-name/app-debug.apk
-          
+            fastlane ios custom_lane    #putitng hello_world lane
+      
+      - run:
+          name: expoting ipa file 
+          command: |
+            fastlane ios build    #exporting Release.ipa lane
 
 
 workflows:
