@@ -13,7 +13,7 @@ platform :ios do
     #     )
     # end
     desc "Export app"
-    lane : build do
+    lane :build do
         gym(
             project: "project.pbxproj",
             scheme: "unityBlog",
