@@ -67,6 +67,8 @@ jobs:
       - run:
           name: expoting ipa file 
           command: |
+            pwd 
+            ls -l
             fastlane ios build    #exporting Release.ipa lane
 
 
