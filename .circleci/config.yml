@@ -67,7 +67,6 @@ jobs:
       - run:
           name: expoting ipa file 
           command: |
-            cd ios/unityBlog.xcodeproj
             fastlane ios build    #exporting Release.ipa lane
 
 

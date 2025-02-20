@@ -15,7 +15,7 @@ platform :ios do
     desc "Export app"
     lane :build do
         gym(
-            project: "./ios/unityBlog.xcodeproj",
+            project: "unityBlog.xcodeproj",
             scheme: "unityBlog",
             clean: true,
             export_xcargs: "-allowProvisioningUpdates",
