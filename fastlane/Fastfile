@@ -14,16 +14,16 @@ platform :ios do
         # Import certificate manually (Replace with your actual .p12 file path)
         import_certificate(
             certificate_path: "Certificates.p12",
-            certificate_password: "Abcd@123",
+            certificate_password: "Abcd@1234",
             keychain_name: "build.keychain",
             keychain_password: "Sp@311200"
         )
 
         # Use the correct provisioning profile manually
-        sigh(
-            app_identifier: "com.nnn.unity.app",
-            provisioning_name: "match_comnnnunityapp.mobileprovision",
-        )
+        # sigh(
+        #     app_identifier: "com.nnn.unity.app",
+        #     provisioning_name: "match_comnnnunityapp.mobileprovision",
+        # )
         app_store_connect_api_key(
             key_id: "57PL28L2UY",
             issuer_id: "589f2d4b-6604-4614-9d4c-f35a64052cad",
