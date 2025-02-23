@@ -13,7 +13,7 @@ platform :ios do
         )
         match(
             type: "appstore",
-            readonly: true,
+            readonly: false,
             app_identifier: "com.nnn.unity.app",
         )
         app_store_connect_api_key(
@@ -27,7 +27,7 @@ platform :ios do
     desc "Export app"
     lane :build do
         gym(
-            project: "unityBlog.xcodeproj",
+            project: "unityBlog.xcworkspace",
             scheme: "unityBlog",
             configuration: "Release",
             clean: true,

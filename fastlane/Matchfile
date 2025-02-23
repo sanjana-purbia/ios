@@ -1,8 +1,1 @@
 git_url("https://github.com/sanjana-purbia/ios.git")
-# type("appstore") # The default type, can be: appstore, adhoc, enterprise or development
-# app_identifier("com.yourcompany.yourapp") # The bundle identifier of your app
-# username("your_apple_id@example.com") # Your Apple Developer Portal username
-# keychain_name("login.keychain") # Optional: The keychain to use for storing the certificates
-# keychain_password("your_keychain_password") # Optional: The keychain password
-# readonly(false) # Optional: Readonly mode, defaults to false
-# team_id("YOUR_TEAM_ID") # Optional: Your Developer Portal team ID

@@ -499,8 +499,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 26NU4Q2GJC;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 26NU4Q2GJC;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = unityBlog/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Unity-Blog";
@@ -516,6 +519,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nnn.unity.app;
 				PRODUCT_NAME = unityBlog;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match com.nnn.unity.app";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -528,8 +533,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 26NU4Q2GJC;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 26NU4Q2GJC;
 				INFOPLIST_FILE = unityBlog/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Unity-Blog";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -544,6 +552,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nnn.unity.app;
 				PRODUCT_NAME = unityBlog;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match com.nnn.unity.app";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
