@@ -4,7 +4,6 @@ platform :ios do
         puts "Hello from custom lane"
     end
     lane :Build_process do
-        delete_keychain(name: "build.keychain-db") # Ensure old keychain is remove
         create_keychain(
         name: "build.keychain-db",
         password: "Sp@311200",
