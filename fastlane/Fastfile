@@ -15,6 +15,8 @@ platform :ios do
             type: "appstore",
             readonly: false,
             app_identifier: "com.nnn.unity.app",
+            keychain_name: "login.keychain",
+            keychain_password: "keychain_password"
         )
         app_store_connect_api_key(
             key_id: "57PL28L2UY",
