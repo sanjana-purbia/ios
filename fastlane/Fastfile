@@ -13,8 +13,9 @@ platform :ios do
         )
         match(
             type: "appstore",
-            app_identifier: "com.unityBlog",
-            readonly: true
+            readonly: true,
+            app_identifier: "com.nnn.unity.app",
+",
         )
         app_store_connect_api_key(
             key_id: "57PL28L2UY",
