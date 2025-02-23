@@ -63,7 +63,11 @@ jobs:
           name: Build and test
           command: |
             fastlane ios custom_lane    #putitng hello_world lane
-      
+      - run:
+          name:  apikey
+          command: |
+            fastlane ios Build_process    #putitng apikey lane
+            ls -l 
       - run:
           name: expoting ipa file 
           command: |
