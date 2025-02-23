@@ -32,8 +32,7 @@ platform :ios do
             configuration: "Release",
             clean: true,
             export_xcargs: "-allowProvisioningUpdates",
-            output_name: "ReleaseApp.ipa",
-            
+            output_name: "ReleaseApp.ipa"
         )
     end
 end
