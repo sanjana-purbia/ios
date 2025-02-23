@@ -37,7 +37,6 @@ platform :ios do
     desc "Export app"
     lane :build do
         gym(
-            path: "./ios/",
             project: "unityBlog.xcworkspace",
             scheme: "unityBlog",
             configuration: "Release",
