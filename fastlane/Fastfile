@@ -6,14 +6,14 @@ platform :ios do
     lane :Build_process do
         create_keychain(
         name: "build.keychain",
-        password: "311200",
+        password: "Sp@311200",
         unlock: true,
         default_keychain: true,
         timeout: 3600
         )
         # Import certificate manually (Replace with your actual .p12 file path)
         import_certificate(
-            certificate_path: "Certificates.p12",
+            certificate_path: "/Users/distiller/project/certs/distribution.p12",
             certificate_password: "Abcd@1234",
             keychain_name: "build.keychain"
         )
@@ -22,7 +22,6 @@ platform :ios do
         sigh(
             app_identifier: "com.nnn.unity.app",
             provisioning_name: "match_comnnnunityapp.mobileprovision",
-            keychain_name: "build.keychain"
         )
         app_store_connect_api_key(
             key_id: "57PL28L2UY",
