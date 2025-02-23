@@ -22,11 +22,11 @@ platform :ios do
         app_store_connect_api_key(
             key_id: "57PL28L2UY",
             issuer_id: "589f2d4b-6604-4614-9d4c-f35a64052cad",
-            key_filepath: "AuthKey_57PL28L2UY.p8" , # base64 encoded key
+            key_filepath: "-----BEGIN PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgNCWIGJekT4bZ93MlkO0xx66W/GMYslMB9FNVVv0Rr4GgCgYIKoZIzj0DAQehRANCAARmW0Ffjma3ZztcAdjkDyAqFQNb1jMxh4o6uP0GirNjILB9ITfbKqHBnc13arvq8Hy8mQDT8nr8zHQyP+Hm6lVi\n-----END PRIVATE KEY-----" , # base64 encoded key
             is_key_content_base64: true,
             in_house: false # detecting this via ASC private key not currently supported
         )
-        
+
         # Use the correct provisioning profile manually
         sigh(
             app_identifier: "com.nnn.unity.app",
