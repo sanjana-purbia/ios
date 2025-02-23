@@ -19,11 +19,6 @@ platform :ios do
             keychain_password: "Sp@311200"
         )
 
-        # Use the correct provisioning profile manually
-        sigh(
-            app_identifier: "com.nnn.unity.app",
-            provisioning_name: "match_comnnnunityapp.mobileprovision"
-        )
         app_store_connect_api_key(
             key_id: "57PL28L2UY",
             issuer_id: "589f2d4b-6604-4614-9d4c-f35a64052cad",
@@ -31,6 +26,14 @@ platform :ios do
             is_key_content_base64: true,
             in_house: false # detecting this via ASC private key not currently supported
         )
+        
+        # Use the correct provisioning profile manually
+        sigh(
+            app_identifier: "com.nnn.unity.app",
+            provisioning_name: "match_comnnnunityapp.mobileprovision",
+            team_id: "26NU4Q2GJC"
+        )
+        
     end
     desc "Export app"
     lane :build do
