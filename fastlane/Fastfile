@@ -5,7 +5,7 @@ platform :ios do
     end
     lane :Build_process do
         create_keychain(
-        name: "build.keychain",
+        name: "build.keychain-db",
         password: "Sp@311200",
         unlock: true,
         default_keychain: true,
