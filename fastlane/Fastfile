@@ -29,8 +29,9 @@ platform :ios do
         # Use the correct provisioning profile manually
         sigh(
             app_identifier: "com.nnn.unity.app",
-            provisioning_name: "match_comnnnunityapp.mobileprovision",
-            team_id: "26NU4Q2GJC"
+            #provisioning_name: "match_comnnnunityapp.mobileprovision",
+            team_id: "26NU4Q2GJC",
+            readonly: true
         )
         
     end
@@ -45,4 +46,4 @@ platform :ios do
             output_name: "ReleaseApp.ipa"
         )
     end
-end
+end 
