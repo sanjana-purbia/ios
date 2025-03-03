@@ -41,6 +41,7 @@ jobs:
       - run: 
           name: node modules check
           command: |
+            rm -rf node_modules
             npm install
             ls -l
 
