@@ -4,6 +4,7 @@ platform :ios do
         puts "Hello from custom lane"
     end
     lane :Build_process do
+        xcversion(version: "15.0.1")  # Replace with the required version
         create_keychain(
         name: "build.keychain-db",
         password: "Sp@311200",
